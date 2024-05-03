@@ -16,30 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `renew`
+-- Table structure for table `recommendations`
 --
 
-DROP TABLE IF EXISTS `renew`;
+DROP TABLE IF EXISTS `recommendations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `renew` (
-  `RollNo` varchar(50) NOT NULL,
-  `BookId` int(10) NOT NULL,
-  PRIMARY KEY (`RollNo`,`BookId`),
-  KEY `BookId` (`BookId`),
-  CONSTRAINT `renew_ibfk_1` FOREIGN KEY (`RollNo`) REFERENCES `user` (`RollNo`),
-  CONSTRAINT `renew_ibfk_2` FOREIGN KEY (`BookId`) REFERENCES `book` (`BookId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `recommendations` (
+  `R_ID` int(10) NOT NULL AUTO_INCREMENT,
+  `Book_Name` varchar(50) DEFAULT NULL,
+  `Description` varchar(255) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`R_ID`),
+  KEY `username` (`username`),
+  CONSTRAINT `recommendations_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `renew`
+-- Dumping data for table `recommendations`
 --
 
-LOCK TABLES `renew` WRITE;
-/*!40000 ALTER TABLE `renew` DISABLE KEYS */;
-INSERT INTO `renew` VALUES ('b160158cs',2),('b160158cs',9),('b160001cs',11),('b160511cs',11),('b160158cs',18);
-/*!40000 ALTER TABLE `renew` ENABLE KEYS */;
+LOCK TABLES `recommendations` WRITE;
+/*!40000 ALTER TABLE `recommendations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `recommendations` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -51,4 +51,3 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-10-27 13:20:27
